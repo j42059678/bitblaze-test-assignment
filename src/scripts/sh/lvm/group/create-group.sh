@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-source get-group-by-id.sh
+source ${SCRIPTS_DIR}/get-group-by-id.sh
 
 function create_group() {
     VG_ID="$1"
