@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 
 VM_IP=localhost
 

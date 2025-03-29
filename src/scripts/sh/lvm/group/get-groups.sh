@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 
 function get_groups() {
     vgs

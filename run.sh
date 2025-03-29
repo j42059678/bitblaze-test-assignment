@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 set -ev
 
 source ./init/iso/download-iso-image.sh
