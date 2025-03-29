@@ -22,14 +22,20 @@ export class LvmGroupService implements LvmService {
     }
 
     async createGroup(dto: CreateGroupDto) {
-        
+        const data = await this.executorService.execute(`create-group.sh ${dto}`);
+        const group = JSON.parse(data);
+        return group;
     }
 
     async updateGroupsById(id: string, dto: UpdateGroupDto) {
-        
+        const data = await this.executorService.execute(`update-group-by-id.sh ${id} ${dto}`)
+        const group = JSON.parse(data);
+        return group;
     }
 
-    async deleteGroupsById(id: string) {
-        
+    async deleteGroupById(id: string) {
+        const data = await this.executorService.execute(`delete-group-by-id.sh ${id}`)
+        const group = JSON.parse(data);
+        return group;
     }
 }

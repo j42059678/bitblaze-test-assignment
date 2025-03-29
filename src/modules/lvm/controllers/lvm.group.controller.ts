@@ -38,6 +38,6 @@ export class LvmGroupController implements LvmController {
     @ApiOperation({ summary: 'Delete a group by id' })
     @Delete('api/vg/:id')
     async deleteGroupsById(@Param('id') id: string) {
-        return this.groupService.deleteGroupsById(id);
+        return this.groupService.deleteGroupById(id);
     }
 }

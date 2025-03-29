@@ -7,6 +7,6 @@ export class AppService {
   constructor(private readonly  executorService: ExecutorService) {}
 
   async test(): Promise<string> {
-    return this.executorService.execute('test.sh');
+    return this.executorService.execute('just-test.sh');
   }
 }

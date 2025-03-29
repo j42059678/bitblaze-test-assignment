@@ -21,14 +21,20 @@ export class LvmVolumeService implements LvmService {
     }
 
     async createVolume(dto: CreateVolumeDto) {
-
+        const data = await this.executorService.execute(`create-volume.sh ${dto}`);
+        const volume = JSON.parse(data);
+        return volume;
     }
 
     async updateVolumeById(id: string, dto: UpdateGroupDto) {
-
+        const data = await this.executorService.execute(`update-volume-by-id.sh ${id} ${dto}`);
+        const volume = JSON.parse(data);
+        return volume;
     }
 
     async deleteVolumeById(id: string) {
-
+        const data = await this.executorService.execute(`delete-volume-by-id.sh ${id}`);
+        const volume = JSON.parse(data);
+        return volume;
     }
 }

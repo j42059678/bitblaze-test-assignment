@@ -9,7 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const config = new DocumentBuilder()
     .setTitle('Тest assignment for BITBLAZE')
-    .setDescription('Description of API in OpenAPI specification.')
+    .setDescription('Nothing.')
     .setVersion('1.0')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
