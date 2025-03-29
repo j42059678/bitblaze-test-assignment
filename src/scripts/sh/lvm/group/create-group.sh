@@ -1,8 +1,6 @@
 #!/bin/sh
 set -e
 
-source ${SCRIPTS_DIR}/get-group-by-id.sh
-
 function create_group() {
     VG_ID="$1"
     DRIVES=${@:2}
