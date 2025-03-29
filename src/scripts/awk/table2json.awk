@@ -16,15 +16,6 @@ NR == 1 {
     json = json "},"
     print json
 }
-NR == FNR {
-    json = "{"
-    for (i = 1; i <= NF; i++) {
-        json = json "\"" headers[i] "\": \"" $i "\""
-        if (i < NF) json = json ", "
-    }
-    json = json "}"
-    print json
-}
 END {
     print "]"
 }
