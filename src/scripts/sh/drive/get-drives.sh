@@ -1,8 +1,7 @@
 #!/bin/sh
 
-
 function get_drives() {
-    lsblk
+    lsblk -o NAME,SIZE,MOUNTPOINTS -b -Q 'MOUNTPOINTS !~ "/$"' | awk -f ${SCRIPTS_DIR}/awk/table2json.awk
 }
 
-lsblk -J -b
+get_drives
