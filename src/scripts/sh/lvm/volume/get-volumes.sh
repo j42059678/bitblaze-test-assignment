@@ -1,7 +1,7 @@
 #!/bin/sh
 
 function get_volumes() {
-    lvs $@ | awk -f ../../../table2json.awk
+    lvs | awk -f src/scripts/awk/table2json.awk
 }
 
 GROUP_ID=${1}

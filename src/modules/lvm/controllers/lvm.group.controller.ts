@@ -29,10 +29,10 @@ export class LvmGroupController implements LvmController {
         return this.groupService.createGroup(dto);
     }
 
-    @ApiOperation({ summary: 'Delete a group by id' })
+    @ApiOperation({ summary: 'Update a group by id' })
     @Put('api/vg/:id')
     async updateGroupsById(@Param('id') id: string, @Body() dto: UpdateGroupDto) {
-        return this.groupService.updateGroupsById(id, dto);
+        return this.groupService.updateGroupById(id, dto);
     }
 
     @ApiOperation({ summary: 'Delete a group by id' })

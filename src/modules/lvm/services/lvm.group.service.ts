@@ -27,7 +27,7 @@ export class LvmGroupService implements LvmService {
         return group;
     }
 
-    async updateGroupsById(id: string, dto: UpdateGroupDto) {
+    async updateGroupById(id: string, dto: UpdateGroupDto) {
         const data = await this.executorService.execute(`update-group-by-id.sh ${id} ${dto}`)
         const group = JSON.parse(data);
         return group;
