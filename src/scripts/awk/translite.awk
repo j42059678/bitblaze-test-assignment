@@ -41,6 +41,7 @@ function translit_en_to_ru(    i, comb, key) {
     for (key in single_en) {
         gsub(key, single_en[key], $0)
     }
+    gsub("-", " ");
 }
 
 function translit_ru_to_en(    i, ru, en) {
@@ -53,4 +54,5 @@ function translit_ru_to_en(    i, ru, en) {
         gsub(ru_upper, en_upper, $0)
     }
     gsub("''", "", $0)
+    gsub(/ /, "-");
 }
