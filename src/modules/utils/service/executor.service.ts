@@ -11,7 +11,7 @@ interface IExecutor {
 @Injectable()
 export class ExecutorService implements IExecutor {
   async execute(command: string): Promise<string> {
-    const { stdout, stderr } = await exec(`$SHELL -c ${process.env.SCRIPTS_DIR}/sh/main.sh '${command}'`);
+    const { stdout, stderr } = await exec(`$SHELL -c 'source ${process.env.SCRIPTS_DIR}/sh/main.sh; ${command}'`);
     if (stderr) {
       throw new Error(stderr);
     }
