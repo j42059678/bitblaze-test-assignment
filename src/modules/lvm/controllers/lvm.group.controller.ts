@@ -26,7 +26,7 @@ export class LvmGroupController implements LvmController {
     return this.groupService.getGroups();
   }
 
-  @ApiOperation({ summary: 'Get a group by id' })
+  @ApiOperation({ summary: 'Get a group by its id' })
   @Get('api/vg/:id')
   async getGroupById(@Param('id') id: string): Promise<GroupDto> {
     return this.groupService.getGroupById(id);
@@ -38,7 +38,7 @@ export class LvmGroupController implements LvmController {
     return this.groupService.createGroup(dto);
   }
 
-  @ApiOperation({ summary: 'Update a group by id' })
+  @ApiOperation({ summary: 'Update a group by its id' })
   @Put('api/vg/:id')
   async updateGroupById(
     @Param('id') id: string,
@@ -47,7 +47,7 @@ export class LvmGroupController implements LvmController {
     return this.groupService.updateGroupById(id, dto);
   }
 
-  @ApiOperation({ summary: 'Delete a group by id' })
+  @ApiOperation({ summary: 'Delete a group by its id' })
   @Delete('api/vg/:id')
   async deleteGroupById(@Param('id') id: string): Promise<GroupDto> {
     return this.groupService.deleteGroupById(id);

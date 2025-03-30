@@ -20,25 +20,25 @@ import { VolumeDto } from '../dto/volume/volume.dto';
 export class LvmVolumeController implements LvmController {
   constructor(private readonly volumeService: LvmVolumeService) {}
 
-  @ApiOperation({ summary: 'Get all volumes by group id' })
+  @ApiOperation({ summary: 'Get all volumes' })
   @Get('/api/volume')
   async getVolumes(): Promise<VolumeListDto> {
     return this.volumeService.getVolumes();
   }
 
-  @ApiOperation({ summary: 'Get a volume by id' })
+  @ApiOperation({ summary: 'Get volumes by the group id' })
   @Get('/api/volume/:id')
   async getVolumeById(@Param('id') id: string): Promise<VolumeDto> {
     return this.volumeService.getVolumeById(id);
   }
 
-  @ApiOperation({ summary: 'Create a volume by group id' })
+  @ApiOperation({ summary: 'Create a volume' })
   @Post('api/volume')
   async createVolume(@Body() dto: CreateVolumeDto): Promise<VolumeDto> {
     return this.volumeService.createVolume(dto);
   }
 
-  @ApiOperation({ summary: 'Update a volume by id' })
+  @ApiOperation({ summary: 'Update a volume by its id' })
   @Put('/api/volume/:id')
   async updateVolumeById(
     @Param('id') id: string,
@@ -47,7 +47,7 @@ export class LvmVolumeController implements LvmController {
     return this.volumeService.updateVolumeById(id, dto);
   }
 
-  @ApiOperation({ summary: 'Delete a volume by id' })
+  @ApiOperation({ summary: 'Delete a volume by its id' })
   @Delete('/api/volume/:id')
   async deleteVolumeById(@Param('id') id: string): Promise<VolumeDto> {
     return this.volumeService.deleteVolumeById(id);
