@@ -1,7 +1,7 @@
 #!/bin/sh
 
 function get_volumes() {
-    lvs | awk -f ${SCRIPTS_DIR}/awk/table2json.awk
+    lvs | awk -f ${SCRIPTS_DIR}/awk/table2json.awk | jq .
 }
 
 VG_ID=${1}
