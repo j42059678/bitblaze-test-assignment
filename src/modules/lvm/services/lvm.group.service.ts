@@ -14,7 +14,7 @@ export class LvmGroupService implements LvmService {
     const data = await this.executorService.execute(
       'source get-groups.sh && get_groups',
     );
-    const groups = JSON.parse(data);
+    const groups = await JSON.parse(data);
     return groups;
   }
 
@@ -22,7 +22,7 @@ export class LvmGroupService implements LvmService {
     const data = await this.executorService.execute(
       `source get-group-by-id.sh && get_group_by_id \'${id}\'`,
     );
-    const group = JSON.parse(data);
+    const group = await JSON.parse(data);
     return group;
   }
 
