@@ -25,7 +25,7 @@ export class LvmVolumeController implements LvmController {
     return await this.volumeService.getVolumes();
   }
 
-  @ApiOperation({ summary: 'Get volume by its id' })
+  @ApiOperation({ summary: 'Get volume by the group id' })
   @Get('/api/volume/:groupId')
   async getVolumesByGroupId(
     @Param('groupId') groupId: string,
@@ -39,7 +39,7 @@ export class LvmVolumeController implements LvmController {
     return await this.volumeService.createVolume(dto);
   }
 
-  @ApiOperation({ summary: 'Delete a volume by its id' })
+  @ApiOperation({ summary: 'Delete a volume from the group by its id and id of the group' })
   @Delete('/api/volume/:groupId/:volumeId')
   async deleteVolumeById(
     @Param('groupId') groupId: string,

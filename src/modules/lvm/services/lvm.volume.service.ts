@@ -19,7 +19,7 @@ export class LvmVolumeService implements LvmService {
 
   async getVolumesByGroupId(groupId: string): Promise<VolumeDto> {
     const data = await this.executorService.execute(
-      `source get-volume-by-group-id.sh && get_volumes_by_group_id \'${groupId}\'`,
+      `source get-volumes-by-group-id.sh && get_volumes_by_group_id \'${groupId}\'`,
     );
     const volume = JSON.parse(data);
     return volume;
