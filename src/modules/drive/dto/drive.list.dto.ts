@@ -1,7 +1,7 @@
 import { IDto } from 'src/modules/base/base.dto';
 
 export interface DriveListDtoItem extends IDto {
-  name: string;
+  id: string;
   size: number;
 }
 
