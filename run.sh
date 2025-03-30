@@ -2,4 +2,4 @@
 
 set -ev
 
-yard install && yarn start
+yarn install && yarn start
