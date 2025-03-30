@@ -5,9 +5,9 @@ import { IDto } from 'src/modules/base/base.dto';
 export class CreateGroupDto implements IDto {
   @ApiProperty({ description: 'The name of the group' })
   @IsNotEmpty()
-  name: string
+  name: string;
   @ApiProperty({ description: 'The array of drive ids' })
   @IsArray()
   @IsNotEmpty()
-  drives: string[]
+  drives: string[];
 }

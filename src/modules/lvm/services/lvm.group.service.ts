@@ -11,7 +11,9 @@ export class LvmGroupService implements LvmService {
   constructor(private readonly executorService: ExecutorService) {}
 
   async getGroups(): Promise<GroupListDto> {
-    const data = await this.executorService.execute('source get-groups.sh && get_groups');
+    const data = await this.executorService.execute(
+      'source get-groups.sh && get_groups',
+    );
     const groups = JSON.parse(data);
     return groups;
   }
@@ -30,7 +32,7 @@ export class LvmGroupService implements LvmService {
     );
     const data = await this.executorService.execute(
       `source get-group-by-id.sh && get_group_by_id ${id}`,
-    )
+    );
     const group = JSON.parse(data);
     return group;
   }

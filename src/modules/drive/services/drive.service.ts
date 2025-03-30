@@ -9,13 +9,17 @@ export class DriveService implements IService {
   constructor(private readonly executorService: ExecutorService) {}
 
   async getDrives(): Promise<DriveListDto> {
-    const data = await this.executorService.execute('source get-drives.sh && get_drives');
+    const data = await this.executorService.execute(
+      'source get-drives.sh && get_drives',
+    );
     const drives = JSON.parse(data);
     return drives;
   }
 
   async getDriveById(id: string): Promise<DriveDto> {
-    const data = await this.executorService.execute(`source get-drive-by-id.sh && get_drive_by_id ${id}`);
+    const data = await this.executorService.execute(
+      `source get-drive-by-id.sh && get_drive_by_id ${id}`,
+    );
     const drive = JSON.parse(data);
     return drive;
   }

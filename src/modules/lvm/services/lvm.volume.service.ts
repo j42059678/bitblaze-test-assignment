@@ -11,7 +11,9 @@ export class LvmVolumeService implements LvmService {
   constructor(private readonly executorService: ExecutorService) {}
 
   async getVolumes(): Promise<VolumeListDto> {
-    const data = await this.executorService.execute('source get-volumes.sh && get_volumes ');
+    const data = await this.executorService.execute(
+      'source get-volumes.sh && get_volumes ',
+    );
     const groups = JSON.parse(data);
     return groups;
   }
@@ -25,7 +27,9 @@ export class LvmVolumeService implements LvmService {
   }
 
   async createVolume(dto: CreateVolumeDto): Promise<VolumeDto> {
-    const data = await this.executorService.execute(`source create-volume.sh && create_volume '${JSON.stringify(dto)}'`);
+    const data = await this.executorService.execute(
+      `source create-volume.sh && create_volume '${JSON.stringify(dto)}'`,
+    );
     const volume = JSON.parse(data);
     return volume;
   }

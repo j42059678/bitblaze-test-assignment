@@ -24,9 +24,7 @@ export class DriveController implements IController {
 
   @Delete('api/drive/:id')
   @ApiOperation({ summary: 'Eject a drive by id' })
-  async ejectDriveById(
-    @Param('id') id: string,
-  ): Promise<DriveDto> {
+  async ejectDriveById(@Param('id') id: string): Promise<DriveDto> {
     return this.driveService.ejectDriveById(id);
   }
 }
