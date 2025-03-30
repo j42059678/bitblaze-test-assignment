@@ -4,7 +4,7 @@ import { HelloDto } from '../dto/test.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 //@ApiTags('Misc')
-//@Controller()
+@Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
