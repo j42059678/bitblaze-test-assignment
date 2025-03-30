@@ -2,6 +2,7 @@
 
 function create_volume() {
     JSON=$1
+    echo $JSON
     LV_ID=$(echo "${JSON}" | jq -r '.name')
     VG_ID=$(echo "${JSON}" | jq -r '.vg_id')
     VG_SIZE=$(echo "${JSON}" | jq -r '.size')

@@ -27,22 +27,17 @@ export class LvmGroupService implements LvmService {
   }
 
   async createGroup(dto: CreateGroupDto): Promise<GroupDto> {
-    const id = await this.executorService.execute(
+    const createdId = await this.executorService.execute(
       `source create-group.sh && create_group '${JSON.stringify(dto)}'`,
     );
-    const data = await this.executorService.execute(
-      `source get-group-by-id.sh && get_group_by_id ${id}`,
-    );
-    const group = JSON.parse(data);
-    return group;
+    return this.getGroupById(createdId);
   }
 
   async updateGroupById(id: string, dto: UpdateGroupDto): Promise<GroupDto> {
-    const data = await this.executorService.execute(
+    const updatedId = await this.executorService.execute(
       `source update-group-by-id.sh && update_group_by_id ${id} ${dto}`,
     );
-    const group = JSON.parse(data);
-    return group;
+    return this.getGroupById(updatedId);
   }
 
   async deleteGroupById(id: string): Promise<GroupDto> {
