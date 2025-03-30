@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function create_volume_by_group_id() {
+function create_volume() {
     JSON=$1
     LV_NAME=$(echo "${JSON}" | jq -r '.name')
     VG_ID=$(echo "${JSON}" | jq -r '.vg_id')
