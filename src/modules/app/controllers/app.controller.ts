@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from '../services/app.service';
-import { HelloDto } from '../dto/test.dto';
+import { HelloDto } from '../dto/hello.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 //@ApiTags('Misc')

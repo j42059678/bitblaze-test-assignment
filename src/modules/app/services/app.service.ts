@@ -6,6 +6,6 @@ export class AppService {
   constructor(private readonly executorService: ExecutorService) {}
 
   async getHello(): Promise<string> {
-    return this.executorService.execute('just-hello.sh');
+    return this.executorService.execute('get_hello');
   }
 }
