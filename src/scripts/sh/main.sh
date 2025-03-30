@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 for script in $SCRIPTS_DIR/sh/drive/*.sh; do
     source "$script"

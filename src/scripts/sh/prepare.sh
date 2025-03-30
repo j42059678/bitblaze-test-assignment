@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 function prepare() {
     $VG_ID=$1

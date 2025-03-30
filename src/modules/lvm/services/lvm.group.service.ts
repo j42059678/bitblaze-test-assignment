@@ -10,9 +10,7 @@ export class LvmGroupService implements LvmService {
   constructor(private readonly executorService: ExecutorService) {}
 
   async getGroups(): Promise<GroupListDto> {
-    const data = await this.executorService.execute(
-      'get_groups',
-    );
+    const data = await this.executorService.execute('get_groups');
     const groups = await JSON.parse(data);
     return groups;
   }
@@ -35,9 +33,7 @@ export class LvmGroupService implements LvmService {
 
   async deleteGroupById(groupId: string): Promise<GroupDto> {
     const group = await this.getGroupById(groupId);
-    await this.executorService.execute(
-      `delete_group_by_id \'${groupId}\'`,
-    );
+    await this.executorService.execute(`delete_group_by_id \'${groupId}\'`);
     return group;
   }
 }

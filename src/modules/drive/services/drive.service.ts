@@ -9,9 +9,7 @@ export class DriveService implements IService {
   constructor(private readonly executorService: ExecutorService) {}
 
   async getDrives(): Promise<DriveListDto> {
-    const data = await this.executorService.execute(
-      'get_drives',
-    );
+    const data = await this.executorService.execute('get_drives');
     const drives = JSON.parse(data);
     return drives;
   }

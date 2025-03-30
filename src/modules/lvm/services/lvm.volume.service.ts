@@ -10,9 +10,7 @@ export class LvmVolumeService implements LvmService {
   constructor(private readonly executorService: ExecutorService) {}
 
   async getVolumes(): Promise<VolumeListDto> {
-    const data = await this.executorService.execute(
-      'get_volumes',
-    );
+    const data = await this.executorService.execute('get_volumes');
     const volumes = JSON.parse(data);
     return volumes;
   }

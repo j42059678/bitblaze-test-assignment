@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 function create_group() {
     JSON=$1

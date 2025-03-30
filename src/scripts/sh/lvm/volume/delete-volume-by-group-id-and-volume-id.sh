@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 function delete_volume_by_group_id_and_volume_id() {
     VG_ID=$1

@@ -1,6 +1,5 @@
 #!/bin/sh
-
-source "${SCRIPTS_DIR}/sh/lvm/volume/get-volumes.sh"
+set -e
 
 function get_volume_by_group_id_and_volume_id() {
     VG_ID="$1"
