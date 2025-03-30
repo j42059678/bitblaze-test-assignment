@@ -9,7 +9,8 @@ function create_group() {
     vgcreate ${VG_ID} ${DRIVES} &> /dev/null
 }
 JSON=$1
-echo "${JSON}" && exit
+echo "${JSON}"
+exit
 VG_ID=$(echo "${JSON}" | jq -r '.name')
 DRIVES=$(echo "${JSON}" | jq -r '.drives | join(" ")')
 create_group "${VG_ID}" ${DRIVES}
