@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 source $SCRIPTS_DIR/sh/hello.sh
