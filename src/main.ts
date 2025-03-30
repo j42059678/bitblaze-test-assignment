@@ -14,15 +14,17 @@ async function bootstrap() {
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
-  app.useGlobalPipes(new ValidationPipe({
-    transform: true,
-    whitelist: true,
-    forbidNonWhitelisted: true
-  }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      whitelist: true,
+      forbidNonWhitelisted: true,
+    }),
+  );
   const start = `${process.cwd()}/src/scripts`;
   process.env.SOURCE_DIR = `${process.cwd()}/src`;
-  process.env.SCRIPTS_DIR = `${process.env.SOURCE_DIR}/scripts`
-  process.env.PATH = `${start}:${process.env.PATH}`
+  process.env.SCRIPTS_DIR = `${process.env.SOURCE_DIR}/scripts`;
+  process.env.PATH = `${start}:${process.env.PATH}`;
   const traverse = (d) => {
     readdirSync(d).forEach((f) => {
       const fp = path.join(d, f);

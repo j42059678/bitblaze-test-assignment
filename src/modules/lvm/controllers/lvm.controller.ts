@@ -1,5 +1,3 @@
-import { IController } from "src/modules/base/base.controller";
+import { IController } from 'src/modules/base/base.controller';
 
-export interface LvmController extends IController {
-    
-}
+export interface LvmController extends IController {}

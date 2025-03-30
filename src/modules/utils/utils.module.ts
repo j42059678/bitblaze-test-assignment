@@ -4,6 +4,6 @@ import { IModule } from '../base/base.module';
 
 @Module({
   providers: [ExecutorService],
-  exports: [ExecutorService]
+  exports: [ExecutorService],
 })
 export class UtilsModule implements IModule {}

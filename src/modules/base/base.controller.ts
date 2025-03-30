@@ -1,1 +1,1 @@
-export interface IController { }
+export interface IController {}

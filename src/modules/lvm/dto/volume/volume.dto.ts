@@ -1,7 +1,7 @@
-import { IDto } from "src/modules/base/base.dto";
+import { IDto } from 'src/modules/base/base.dto';
 
 export interface VolumeDto extends IDto {
-    id: string,
-    vg: string,
-    size: number
+  id: string;
+  vg: string;
+  size: number;
 }
