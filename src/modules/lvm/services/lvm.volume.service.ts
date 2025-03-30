@@ -14,22 +14,23 @@ export class LvmVolumeService implements LvmService {
     const data = await this.executorService.execute(
       'source get-volumes.sh && get_volumes ',
     );
-    const groups = JSON.parse(data);
-    return groups;
+    const volumes = JSON.parse(data);
+    return volumes;
   }
 
   async getVolumeById(id: string): Promise<VolumeDto> {
     const data = await this.executorService.execute(
-      `source get-volume-by-id.sh && get_volume_by_id ${id}`,
+      `source get-volume-by-id.sh && get_volume_by_id \'${id}\'`,
     );
-    const groups = JSON.parse(data);
-    return groups;
+    const volume = JSON.parse(data);
+    return volume;
   }
 
   async createVolume(dto: CreateVolumeDto): Promise<VolumeDto> {
     const createdId = await this.executorService.execute(
       `source create-volume.sh && create_volume \'${JSON.stringify(dto)}\'`,
     );
+    console.log(createdId);
     return this.getVolumeById(createdId);
   }
 
@@ -41,10 +42,10 @@ export class LvmVolumeService implements LvmService {
   }
 
   async deleteVolumeById(id: string): Promise<VolumeDto> {
-    const data = await this.executorService.execute(
+    const volume = await this.getVolumeById(id);
+    await this.executorService.execute(
       `source delete-volume-by-id.sh && delete_volume_by_id \'${id}\'`,
     );
-    const volume = JSON.parse(data);
     return volume;
   }
 }
