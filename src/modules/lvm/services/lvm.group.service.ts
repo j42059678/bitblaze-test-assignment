@@ -11,7 +11,7 @@ export class LvmGroupService implements LvmService {
 
   async getGroups(): Promise<GroupListDto> {
     const data = await this.executorService.execute(
-      'source get-groups.sh && get_groups',
+      'get_groups',
     );
     const groups = await JSON.parse(data);
     return groups;
@@ -19,7 +19,7 @@ export class LvmGroupService implements LvmService {
 
   async getGroupById(groupId: string): Promise<GroupDto> {
     const data = await this.executorService.execute(
-      `source get-group-by-id.sh && get_group_by_id \'${groupId}\'`,
+      `get_group_by_id \'${groupId}\'`,
     );
     const group = await JSON.parse(data);
     return group;
@@ -27,7 +27,7 @@ export class LvmGroupService implements LvmService {
 
   async createGroup(dto: CreateGroupDto): Promise<GroupDto> {
     const createdId = await this.executorService.execute(
-      `source create-group.sh && create_group \'${JSON.stringify(dto)}\'`,
+      `create_group \'${JSON.stringify(dto)}\'`,
     );
     const group = await this.getGroupById(createdId);
     return group;
@@ -36,7 +36,7 @@ export class LvmGroupService implements LvmService {
   async deleteGroupById(groupId: string): Promise<GroupDto> {
     const group = await this.getGroupById(groupId);
     await this.executorService.execute(
-      `source delete-group-by-id.sh && delete_group_by_id \'${groupId}\'`,
+      `delete_group_by_id \'${groupId}\'`,
     );
     return group;
   }

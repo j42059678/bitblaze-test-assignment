@@ -10,7 +10,7 @@ export class DriveService implements IService {
 
   async getDrives(): Promise<DriveListDto> {
     const data = await this.executorService.execute(
-      'source get-drives.sh && get_drives',
+      'get_drives',
     );
     const drives = JSON.parse(data);
     return drives;
@@ -18,7 +18,7 @@ export class DriveService implements IService {
 
   async getDriveById(driveId: string): Promise<DriveDto> {
     const data = await this.executorService.execute(
-      `source get-drive-by-id.sh && get_drive_by_id \"${driveId}\"`,
+      `get_drive_by_id \"${driveId}\"`,
     );
     const drive = JSON.parse(data);
     return drive;
