@@ -8,8 +8,8 @@ import { ApiOperation, ApiTags } from '@nestjs/swagger';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('/test')
-  @ApiOperation({ summary: 'Nothing' })
+  @Get('/hello')
+  @ApiOperation({ summary: 'Get a message' })
   async getHello(): Promise<HelloDto> {
     const data = await this.appService.getHello();
     const res = JSON.parse(data);
