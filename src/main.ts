@@ -21,20 +21,8 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
-  const start = `${process.cwd()}/src/scripts`;
   process.env.SOURCE_DIR = `${process.cwd()}/src`;
   process.env.SCRIPTS_DIR = `${process.env.SOURCE_DIR}/scripts`;
-  process.env.PATH = `${start}:${process.env.PATH}`;
-  const traverse = (d) => {
-    readdirSync(d).forEach((f) => {
-      const fp = path.join(d, f);
-      if (lstatSync(fp).isDirectory()) {
-        process.env.PATH = `${fp}:${process.env.PATH}`;
-        traverse(fp);
-      }
-    });
-  };
-  traverse(start);
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
