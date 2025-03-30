@@ -25,7 +25,7 @@ export class LvmVolumeService implements LvmService {
   }
 
   async createVolume(dto: CreateVolumeDto): Promise<VolumeDto> {
-    const data = await this.executorService.execute(`source create-volume.sh && create_volume ${dto}`);
+    const data = await this.executorService.execute(`source create-volume.sh && create_volume '${JSON.stringify(dto)}'`);
     const volume = JSON.parse(data);
     return volume;
   }
