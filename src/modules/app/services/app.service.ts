@@ -6,7 +6,7 @@ import { ExecutorService } from 'src/modules/utils/service/executor.service';
 export class AppService {
   constructor(private readonly  executorService: ExecutorService) {}
 
-  async test(): Promise<string> {
-    return this.executorService.execute('just-test.sh');
+  async getHello(): Promise<string> {
+    return this.executorService.execute('just-hello.sh');
   }
 }

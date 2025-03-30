@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from '../services/app.service';
-import { TestDto } from '../dto/test.dto';
+import { HelloDto } from '../dto/test.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Default')
@@ -10,8 +10,8 @@ export class AppController {
 
   @Get('/test')
   @ApiOperation({ summary: 'Nothing' })
-  async test(): Promise<TestDto> {
-    const data = await this.appService.test();
+  async getHello(): Promise<HelloDto> {
+    const data = await this.appService.getHello();
     const res = JSON.parse(data);
     return res;
   }

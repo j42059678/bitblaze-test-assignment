@@ -1,7 +1,7 @@
 #!/bin/sh
 
 function message() {
-    echo '{ "message": "It is okay." }'
+    echo '{ "message": "Hello, LVM!" }'
 }
 
 message
