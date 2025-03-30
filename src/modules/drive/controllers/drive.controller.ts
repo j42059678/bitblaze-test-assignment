@@ -16,9 +16,9 @@ export class DriveController implements IController {
     return this.driveService.getDrives();
   }
 
-  @Get('api/drive/:id')
+  @Get('api/drive/:driveId')
   @ApiOperation({ summary: 'Get a drive by its id' })
-  async getDriveById(@Param('id') id: string): Promise<DriveDto> {
-    return this.driveService.getDriveById(id);
+  async getDriveById(@Param('driveId') driveId: string): Promise<DriveDto> {
+    return this.driveService.getDriveById(driveId);
   }
 }
