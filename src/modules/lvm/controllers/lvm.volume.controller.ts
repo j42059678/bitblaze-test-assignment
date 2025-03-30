@@ -27,9 +27,9 @@ export class LvmVolumeController implements LvmController {
   }
 
   @ApiOperation({ summary: 'Get volume by its id' })
-  @Get('/api/volume/:id')
-  async getVolumeById(@Param('id') id: string): Promise<VolumeDto> {
-    return await this.volumeService.getVolumeById(id);
+  @Get('/api/volume/:groupId')
+  async getVolumesByGroupId(@Param('groupId') groupId: string): Promise<VolumeDto> {
+    return await this.volumeService.getVolumesByGroupId(groupId);
   }
 
   @ApiOperation({ summary: 'Create a volume' })
@@ -38,18 +38,9 @@ export class LvmVolumeController implements LvmController {
     return await this.volumeService.createVolume(dto);
   }
 
-  @ApiOperation({ summary: 'Update a volume by its id' })
-  @Put('/api/volume/:id')
-  async updateVolumeById(
-    @Param('id') id: string,
-    dto: UpdateVolumeDto,
-  ): Promise<VolumeDto> {
-    return await this.volumeService.updateVolumeById(id, dto);
-  }
-
   @ApiOperation({ summary: 'Delete a volume by its id' })
-  @Delete('/api/volume/:id')
-  async deleteVolumeById(@Param('id') id: string): Promise<VolumeDto> {
-    return await this.volumeService.deleteVolumeById(id);
+  @Delete('/api/volume/:groupId/:volumeId')
+  async deleteVolumeById(@Param('groupId') groupId: string, @Param('volumeId') volumeId: string): Promise<VolumeDto> {
+    return await this.volumeService.deleteVolumeByGroupIdAndVolumeId(groupId, volumeId);
   }
 }
