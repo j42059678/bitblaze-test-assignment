@@ -19,7 +19,6 @@ export class LvmGroupService implements LvmService {
   }
 
   async getGroupById(id: string): Promise<GroupDto> {
-    console.log(`source get-group-by-id.sh && get_group_by_id \'${id}\'`);
     const data = await this.executorService.execute(
       `source get-group-by-id.sh && get_group_by_id \'${id}\'`,
     );
