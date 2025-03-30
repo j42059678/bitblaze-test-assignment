@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { LvmService } from './lvm.service';
 import { CreateGroupDto } from '../dto/group/create-group.dto';
 import { ExecutorService } from 'src/modules/utils/service/executor.service';
-import { UpdateGroupDto } from '../dto/group/update-group.dto';
 import { GroupListDto } from '../dto/group/group.list.dto';
 import { GroupDto } from '../dto/group/group.dto';
 
@@ -32,13 +31,6 @@ export class LvmGroupService implements LvmService {
     );
     const group = await this.getGroupById(createdId);
     return group;
-  }
-
-  async updateGroupById(id: string, dto: UpdateGroupDto): Promise<GroupDto> {
-    const updatedId = await this.executorService.execute(
-      `source update-group-by-id.sh && update_group_by_id \'${id}\' \'${dto}\'`,
-    );
-    return await this.getGroupById(updatedId);
   }
 
   async deleteGroupById(id: string): Promise<GroupDto> {

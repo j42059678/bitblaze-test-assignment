@@ -11,7 +11,6 @@ import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { CreateGroupDto } from '../dto/group/create-group.dto';
 import { LvmController } from './lvm.controller';
 import { LvmGroupService } from '../services/lvm.group.service';
-import { UpdateGroupDto } from '../dto/group/update-group.dto';
 import { GroupListDto } from '../dto/group/group.list.dto';
 import { GroupDto } from '../dto/group/group.dto';
 

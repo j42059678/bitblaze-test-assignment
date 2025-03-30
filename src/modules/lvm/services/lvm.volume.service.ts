@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { LvmService } from './lvm.service';
 import { ExecutorService } from 'src/modules/utils/service/executor.service';
 import { CreateVolumeDto } from '../dto/volume/create-volume.dto';
-import { UpdateGroupDto } from '../dto/group/update-group.dto';
 import { VolumeListDto } from '../dto/volume/volume.list.dto';
 import { VolumeDto } from '../dto/volume/volume.dto';
 

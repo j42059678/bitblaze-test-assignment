@@ -11,7 +11,6 @@ import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { CreateVolumeDto } from '../dto/volume/create-volume.dto';
 import { LvmController } from './lvm.controller';
 import { LvmVolumeService } from '../services/lvm.volume.service';
-import { UpdateVolumeDto } from '../dto/volume/update-volume.dto';
 import { VolumeListDto } from '../dto/volume/volume.list.dto';
 import { VolumeDto } from '../dto/volume/volume.dto';
 
