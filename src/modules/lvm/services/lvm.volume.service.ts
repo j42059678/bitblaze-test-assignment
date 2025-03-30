@@ -30,14 +30,14 @@ export class LvmVolumeService implements LvmService {
     const createdId = await this.executorService.execute(
       `source create-volume.sh && create_volume \'${JSON.stringify(dto)}\'`,
     );
-    return this.getVolumeById(createdId);
+    return await this.getVolumeById(createdId);
   }
 
   async updateVolumeById(id: string, dto: UpdateGroupDto): Promise<VolumeDto> {
     const updatedId = await this.executorService.execute(
       `source update-volume-by-id.sh && update_volume \'${id}\' \'${JSON.stringify(dto)}\'`,
     );
-    return this.getVolumeById(updatedId);
+    return await this.getVolumeById(updatedId);
   }
 
   async deleteVolumeById(id: string): Promise<VolumeDto> {

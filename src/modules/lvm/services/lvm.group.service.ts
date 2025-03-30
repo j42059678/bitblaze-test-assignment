@@ -30,15 +30,14 @@ export class LvmGroupService implements LvmService {
     const createdId = await this.executorService.execute(
       `source create-group.sh && create_group \'${JSON.stringify(dto)}\'`,
     );
-    console.log(createdId)
-    return this.getGroupById(createdId);
+    return await this.getGroupById(createdId);
   }
 
   async updateGroupById(id: string, dto: UpdateGroupDto): Promise<GroupDto> {
     const updatedId = await this.executorService.execute(
       `source update-group-by-id.sh && update_group_by_id \'${id}\' \'${dto}\'`,
     );
-    return this.getGroupById(updatedId);
+    return await this.getGroupById(updatedId);
   }
 
   async deleteGroupById(id: string): Promise<GroupDto> {
