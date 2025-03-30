@@ -25,12 +25,21 @@ export class LvmVolumeController implements LvmController {
     return await this.volumeService.getVolumes();
   }
 
-  @ApiOperation({ summary: 'Get volume by the group id' })
+  @ApiOperation({ summary: 'Get volume by id of the group' })
   @Get('/api/volume/:groupId')
   async getVolumesByGroupId(
     @Param('groupId') groupId: string,
   ): Promise<VolumeDto> {
     return await this.volumeService.getVolumesByGroupId(groupId);
+  }
+
+  @ApiOperation({ summary: 'Get volume by its id and id of the group' })
+  @Get('/api/volume/:groupId/:volumeId')
+  async getVolumeByGroupIdAndVolumeId(
+    @Param('groupId') groupId: string,
+    @Param('volumeId') volumeId: string,
+  ): Promise<VolumeDto> {
+    return await this.volumeService.getVolumeByVolumeGroupIdAndVolumeId(groupId, volumeId);
   }
 
   @ApiOperation({ summary: 'Create a volume' })
