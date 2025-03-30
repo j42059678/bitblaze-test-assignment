@@ -17,5 +17,6 @@ NR == 1 {
     print json
 }
 END {
+    print json
     print "]"
 }
