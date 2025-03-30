@@ -30,6 +30,7 @@ export class LvmGroupService implements LvmService {
     const createdId = await this.executorService.execute(
       `source create-group.sh && create_group \'${JSON.stringify(dto)}\'`,
     );
+    console.log(createdId)
     return this.getGroupById(createdId);
   }
 
