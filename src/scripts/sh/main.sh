@@ -1,9 +1,9 @@
 #/bin/bash
 
-for script in ./drive/*.sh; do
+for script in $SCRIPTS_DIR/sh/drive/*.sh; do
     source "$script"
 done
 
-for script in ./lvm/**/*.sh; do
+for script in $SCRIPTS_DIR/lvm/**/*.sh; do
     source "$script"
 done
