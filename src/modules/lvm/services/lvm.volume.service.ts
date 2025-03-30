@@ -30,7 +30,6 @@ export class LvmVolumeService implements LvmService {
     const createdId = await this.executorService.execute(
       `source create-volume.sh && create_volume \'${JSON.stringify(dto)}\'`,
     );
-    console.log(createdId);
     return this.getVolumeById(createdId);
   }
 
