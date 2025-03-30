@@ -8,7 +8,7 @@ import { VolumeDto } from '../dto/volume/volume.dto';
 
 @Injectable()
 export class LvmVolumeService implements LvmService {
-  constructor(private readonly executorService: ExecutorService) { }
+  constructor(private readonly executorService: ExecutorService) {}
 
   async getVolumes(): Promise<VolumeListDto> {
     const data = await this.executorService.execute(
@@ -41,8 +41,14 @@ export class LvmVolumeService implements LvmService {
     return await this.getVolumeByVolumeGroupIdAndVolumeId(dto.vg_id, createdId);
   }
 
-  async deleteVolumeByGroupIdAndVolumeId(groupId: string, volumeId: string): Promise<VolumeDto> {
-    const volume = await this.getVolumeByVolumeGroupIdAndVolumeId(groupId, volumeId);
+  async deleteVolumeByGroupIdAndVolumeId(
+    groupId: string,
+    volumeId: string,
+  ): Promise<VolumeDto> {
+    const volume = await this.getVolumeByVolumeGroupIdAndVolumeId(
+      groupId,
+      volumeId,
+    );
     await this.executorService.execute(
       `source delete-volume-by-group-id-and-volume-id.sh && delete_volume_by_group_id_and_volume_id \'${groupId}\' \'${volumeId}\'`,
     );
