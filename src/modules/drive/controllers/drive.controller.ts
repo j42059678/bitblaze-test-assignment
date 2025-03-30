@@ -17,13 +17,13 @@ export class DriveController implements IController {
   }
 
   @Get('api/drive/:id')
-  @ApiOperation({ summary: 'Get a drive by id' })
+  @ApiOperation({ summary: 'Get a drive by its id' })
   async getDriveById(@Param('id') id: string): Promise<DriveDto> {
     return this.driveService.getDriveById(id);
   }
 
   @Delete('api/drive/:id')
-  @ApiOperation({ summary: 'Eject a drive by id' })
+  @ApiOperation({ summary: 'Eject a drive by its id' })
   async ejectDriveById(@Param('id') id: string): Promise<DriveDto> {
     return this.driveService.ejectDriveById(id);
   }
