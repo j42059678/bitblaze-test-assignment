@@ -39,7 +39,10 @@ export class LvmVolumeController implements LvmController {
     @Param('groupId') groupId: string,
     @Param('volumeId') volumeId: string,
   ): Promise<VolumeDto> {
-    return await this.volumeService.getVolumeByVolumeGroupIdAndVolumeId(groupId, volumeId);
+    return await this.volumeService.getVolumeByVolumeGroupIdAndVolumeId(
+      groupId,
+      volumeId,
+    );
   }
 
   @ApiOperation({ summary: 'Create a volume' })
@@ -48,7 +51,9 @@ export class LvmVolumeController implements LvmController {
     return await this.volumeService.createVolume(dto);
   }
 
-  @ApiOperation({ summary: 'Delete a volume from the group by its id and id of the group' })
+  @ApiOperation({
+    summary: 'Delete a volume from the group by its id and id of the group',
+  })
   @Delete('/api/volume/:groupId/:volumeId')
   async deleteVolumeById(
     @Param('groupId') groupId: string,
