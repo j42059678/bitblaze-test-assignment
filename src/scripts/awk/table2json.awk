@@ -1,5 +1,5 @@
 BEGIN {
-    print "["
+    json = "["
 }
 NR == 1 {
     for (i = 1; i <= NF; i++) {
@@ -8,15 +8,16 @@ NR == 1 {
     next
 }
 {
-    json = "{"
+    data = ""
     for (i = 1; i <= NF; i++) {
-        json = json "\"" headers[i] "\": \"" $i "\""
-        if (i < NF) json = json ", "
+        data = data "\"" headers[i] "\": \"" $i "\""
+        if (i < NF) data = data ", "
     }
-    json = json "},"
-    print json
+    if (json != "[") {
+        json = json ", "
+    }
+    json = json "{" data "}"
 }
 END {
-    print json
-    print "]"
+    print json "]"
 }
