@@ -11,28 +11,28 @@ export class LvmVolumeService implements LvmService {
   constructor(private readonly executorService: ExecutorService) {}
 
   async getVolumes(): Promise<VolumeListDto> {
-    const data = await this.executorService.execute('get-volumes.sh');
+    const data = await this.executorService.execute('source get-volumes.sh && get_volumes ');
     const groups = JSON.parse(data);
     return groups;
   }
 
   async getVolumeById(id: string): Promise<VolumeDto> {
     const data = await this.executorService.execute(
-      `get-volume-by-id.sh ${id}`,
+      `source get-volume-by-id.sh && get_volume_by_id ${id}`,
     );
     const groups = JSON.parse(data);
     return groups;
   }
 
   async createVolume(dto: CreateVolumeDto): Promise<VolumeDto> {
-    const data = await this.executorService.execute(`create-volume.sh ${dto}`);
+    const data = await this.executorService.execute(`source create-volume.sh && create_volume ${dto}`);
     const volume = JSON.parse(data);
     return volume;
   }
 
   async updateVolumeById(id: string, dto: UpdateGroupDto): Promise<VolumeDto> {
     const data = await this.executorService.execute(
-      `update-volume-by-id.sh ${id} ${dto}`,
+      `source update-volume-by-id.sh && update_volume '${id} ${JSON.stringify(dto)}'`,
     );
     const volume = JSON.parse(data);
     return volume;
@@ -40,7 +40,7 @@ export class LvmVolumeService implements LvmService {
 
   async deleteVolumeById(id: string): Promise<VolumeDto> {
     const data = await this.executorService.execute(
-      `delete-volume-by-id.sh ${id}`,
+      `source delete-volume-by-id.sh && delete_volume_by_id ${id}`,
     );
     const volume = JSON.parse(data);
     return volume;
