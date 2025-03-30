@@ -26,7 +26,7 @@ export class LvmGroupService implements LvmService {
 
   async createGroup(dto: CreateGroupDto): Promise<GroupDto> {
     const data = await this.executorService.execute(
-      `create-group.sh ${dto.name} ${dto.drives.join(' ')}`,
+      `create-group.sh ${dto}`,
     );
     const group = JSON.parse(data);
     return group;
